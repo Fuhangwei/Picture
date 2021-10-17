@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box{
+            width: 50%;
+            height: 200px;
+            background-color:rgb(233,248,214);
+            border: 1px solid rgb(130,246,18);
+            font-size: 40px;
+            font-weight: 600;
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 200px;
+            text-align: center;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+        span{
+            display: block;
+            width: 30%;
+            height: 44px;
+            line-height: 44px;
+            background-color: rgb(6,158,64);
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+            margin: 0 auto;
+            font-size: 18px;
+            font-family: 华文细黑;
+        }
+        span:hover{
+            background-color: rgb(4,190,76);
+        }
+    </style>
+</head>
+<body>
+    <div id="box">随机点名</div>
+    <span id="span" onclick="dinming();">开始</span>
+    <script>
+        var arr=["张首钢","张首丰","张雨","付航玮","付航旗","祁怀洲","祁怀鹏","祁文艳"];
+        var box=document.getElementById("box");
+        var span=document.getElementById("span");
+        var state=0;
+        var t;
+        function dinming(){
+            if(state==0){
+                clearInterval(t);
+                t=setInterval(function(){
+                    var sj=Math.round(Math.random()*(arr.length-1));
+                    box.innerHTML=arr[sj];
+                },3);
+                span.innerHTML="结束";
+                state=1;
+            }else{
+                state=0;
+                clearInterval(t);
+                span.innerHTML="开始";
+            }
+        }
+    </script>
+</body>
+</html>
